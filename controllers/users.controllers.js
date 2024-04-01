@@ -194,11 +194,9 @@ async function validateFields (name, email, roleId, picture, action) {
     }
   } else if (action === 'update') {
     if (!isValidEmail(email)) {
-      eliminarArchivo(picture)
       throw new Error('Email is not valid')
     }
     if (!Number.isInteger(parseInt(roleId)) || roleId > 3 || parseInt(roleId) === 0) {
-      eliminarArchivo(picture)
       throw new Error('Role ID is invalid')
     }
   }
