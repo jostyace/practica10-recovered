@@ -164,7 +164,7 @@ async function validateId (id) {
 // Validate picture
 async function reemplazarFoto (picture, id) {
   const [pic] = await pool.query('SELECT picture FROM users WHERE id = ?', [id])
-  if (picture !== pic[0].picture) {
+  if (picture && picture !== pic[0].picture) {
     eliminarArchivo(pic[0].picture)
   }
 }
